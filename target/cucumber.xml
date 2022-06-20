@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="11.826">
+    <testcase classname="Validating Auto Insurance" name="Validating Landing Page" time="11.497">
+        <failure message="Cannot invoke &quot;java.io.BufferedReader.readLine()&quot; because &quot;this.bufferedReader&quot; is null" type="java.lang.NullPointerException"><![CDATA[Given user select auto......................................................failed
+When user input in zipcode..................................................skipped
+When user select get a Quote................................................skipped
+
+StackTrace:
+java.lang.NullPointerException: Cannot invoke "java.io.BufferedReader.readLine()" because "this.bufferedReader" is null
+	at utils.ReadTxtFile.getListData(ReadTxtFile.java:28)
+	at pages.LandingPage.checkTitle(LandingPage.java:34)
+	at pages.LandingPage.landingPageSteps(LandingPage.java:44)
+	at steps.AllSteps.user_select_auto(AllSteps.java:17)
+	at ✽.user select auto(file:///C:/Users/rubal/eclipse-workspace/connectByAmFam.BDD/features/insurance.feature:7)
+]]></failure>
+    </testcase>
+</testsuite>

@@ -1,0 +1,129 @@
+BDD - Behaviour Driven Development
+
+Feature File > Gherkins > Scenarios or Scenario Outline (run same test multiple time) > Given When Then And Example
+TestRunner > Cucumber Junit > Cucumber Options  > glue, 
+ 
+
+Given - pre Condition
+	And - Given And
+When - Action
+	And - Action And
+Then - Assertion and Validation
+	And - Assertion And
+And - Appender ()
+
+
+
+
+#Author: your.email@your.domain.com
+#Keywords Summary :
+#Feature: List of scenarios.
+#Scenario: Business rule through list of steps with arguments.
+#Given: Some precondition step
+#When: Some key actions
+#Then: To observe outcomes or validation
+#And,But: To enumerate more Given,When,Then steps
+#Scenario Outline: List of steps for data-driven as an Examples and <placeholder>
+#Examples: Container for s table
+#Background: List of steps run before each of the scenarios
+#""" (Doc Strings)
+#| (Data Tables)
+#@ (Tags/Labels):To group Scenarios
+#<> (placeholder)
+#""
+## (Comments)
+#Sample Feature Definition Template
+@tag
+Feature: Title of your feature
+  I want to use this template for my feature file
+
+  @tag1
+  Scenario: Title of your scenario
+    Given I want to write a step with precondition
+    And some other precondition
+    When I complete action
+    And some other action
+    And yet another action
+    Then I validate the outcomes
+    And check more outcomes
+
+  @tag2
+  Scenario Outline: Title of your scenario outline
+    Given I want to write a step with <name>
+    When I check for the <value> in step
+    Then I verify the <status> in step
+
+    Examples: 
+      | name  | value | status  |
+      | name1 |     5 | success |
+      | name2 |     7 | Fail    |
+      
+      
+      
+      ============================================================================================================================================
+      
+      
+      
+      AllSteps: --->
+      
+      public class AllSteps {
+	public static WebDriver driver;
+	
+	public void setup() {
+		WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+	}
+	
+	@Given("when user is in homepage")
+	public void when_user_is_in_homepage() {
+	   setup();
+	   driver.get("https://www.amfam.com/");
+	    System.out.println("user is in the homepage");
+	}
+	
+	@Given("user clicks auto button")
+	public void user_clicks_startquote_button() {
+	    driver.findElement(By.xpath("//button[@class='LeadRouting__select a'][1]")).click();
+		System.out.println("user click on auto button");
+	}
+	
+	@When("user input {string} in zipcode")
+	public void user_input_in_zipcode(String string) {
+	    driver.findElement(By.id("uid_54")).sendKeys(string);
+		System.out.println("user input zipcod: " + string);
+	}
+	
+	@When("user click startquoting button")
+	public void user_click_startquoting_button() {
+		driver.findElement(By.xpath("(//span[@class='LoadingButton__content'])[1]")).click();
+		System.out.println("user click on start quoting");
+	}
+	
+	@When("user clicks get a quote")
+	public void user_clicks_get_a_quote() {
+		driver.findElement(By.xpath("//span[text()='Get a Quote']")).click();
+		System.out.println("user click on get quote");
+	}
+	
+	@When("user enter {string} in zipcod")
+	public void user_enter_in_zipcod(String string) {
+		driver.findElement(By.id("uid_34")).sendKeys(string);
+		System.out.println("user input zipcod: " + string);
+	}
+	
+	@When("user click get a quote")
+	public void user_click_get_a_quote() {
+		driver.findElement(By.xpath("(//button[@type='submit'])[1]")).click();
+		System.out.println("user click on getQuote");
+	}
+	
+	
+	@Then("user will navigate to personal detail page")
+	public void user_will_navigate_to_personal_detail_page() throws InterruptedException {
+	    Thread.sleep(5000);
+		System.out.println(driver.getCurrentUrl());
+	}
+}

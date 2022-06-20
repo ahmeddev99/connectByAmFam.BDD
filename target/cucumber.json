@@ -1,0 +1,87 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2022-06-20T04:28:57.591Z",
+        "before": [
+          {
+            "result": {
+              "duration": 10601820900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "base.HookClass.setup()"
+            }
+          }
+        ],
+        "line": 6,
+        "name": "Validating Landing Page",
+        "description": "",
+        "id": "validating-auto-insurance;validating-landing-page",
+        "after": [
+          {
+            "result": {
+              "duration": 497674300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "base.HookClass.closingBrowser()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "error_message": "java.lang.NullPointerException: Cannot invoke \"java.io.BufferedReader.readLine()\" because \"this.bufferedReader\" is null\r\n\tat utils.ReadTxtFile.getListData(ReadTxtFile.java:28)\r\n\tat pages.LandingPage.checkTitle(LandingPage.java:34)\r\n\tat pages.LandingPage.landingPageSteps(LandingPage.java:44)\r\n\tat steps.AllSteps.user_select_auto(AllSteps.java:17)\r\n\tat ✽.user select auto(file:///C:/Users/rubal/eclipse-workspace/connectByAmFam.BDD/features/insurance.feature:7)\r\n",
+              "duration": 220250600,
+              "status": "failed"
+            },
+            "line": 7,
+            "name": "user select auto",
+            "match": {
+              "location": "steps.AllSteps.user_select_auto()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 8,
+            "name": "user input in zipcode",
+            "match": {
+              "location": "steps.AllSteps.user_input_in_zipcode()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1000800,
+              "status": "skipped"
+            },
+            "line": 9,
+            "name": "user select get a Quote",
+            "match": {
+              "location": "steps.AllSteps.user_select_get_a_Quote()"
+            },
+            "keyword": "When "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@dataDriven"
+          }
+        ]
+      }
+    ],
+    "name": "Validating Auto Insurance",
+    "description": "  I want to use this template for my feature file",
+    "id": "validating-auto-insurance",
+    "keyword": "Feature",
+    "uri": "file:features/insurance.feature",
+    "tags": []
+  }
+]
